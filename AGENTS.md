@@ -29,7 +29,7 @@ bandadau-landing/
 │       ├── page.tsx               compone las secciones
 │       └── [legal]/page.tsx       /es/privacidad, /es/terminos, /en/privacy, /en/terms
 ├── src/
-│   ├── components/{layout,sections,ui,common}   Navbar, Footer, LegalPage · Hero, Marquee, Features, HowItWorks, Facts, PublicEvents, Faq, FinalCta · Section, ButtonLink, Logo (marca oficial de `bandadau-brand`: LogoMark/LogoWordmark/Logo/FlockArt), PhoneFrame, AppTabBar, QrCode · mockups/ (screens = pantallas de la app Expo, TicketPass + TicketModal = ticket 3D) · Providers, Reveal, ThemeToggle, LanguageSwitcher
+│   ├── components/{layout,sections,ui,common}   Navbar, Footer, LegalPage · Hero (+FlockHero: la bandada vuela y forma la U), Marquee, Features (recorrido pegajoso: texto + teléfono que cambia de pantalla), HowItWorks, Facts, PublicEvents, Faq, FinalCta · Section, ButtonLink, Logo (marca oficial de `bandadau-brand`: LogoMark/LogoWordmark/Logo/FlockArt), PhoneFrame, AppTabBar, QrCode · mockups/ (screens = pantallas de la app Expo, TicketPass + TicketModal = ticket 3D) · Providers, Reveal, ThemeToggle, LanguageSwitcher
 │   ├── features/public-events/    api.ts (cliente + fallback), use-public-events.ts (TanStack Query), types
 │   └── lib/                       api-client, env, i18n (createI18n/getT), locale (detección, slugs legales), theme, metadata, fonts
 ├── locales/{es,en}/landing.json   namespace propio `landing` (los de common/errors/enums vienen de @bandada/i18n)

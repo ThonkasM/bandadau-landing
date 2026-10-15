@@ -5,6 +5,7 @@ import type { CSSProperties } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FeedScreen } from '@/components/mockups/screens';
+import { FlockHero } from '@/components/sections/FlockHero';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { PhoneFrame } from '@/components/ui/PhoneFrame';
 import { env } from '@/lib/env';
@@ -53,10 +54,13 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="hero-rise relative mx-auto w-full max-w-md lg:max-w-none" style={delay('0.12s')}>
-          <PhoneFrame label={t('a11y.mockup')} className="lg:max-w-[340px]">
-            <FeedScreen />
-          </PhoneFrame>
+        <div className="hero-rise relative mx-auto w-full max-w-[300px] sm:max-w-[320px] lg:max-w-[340px]" style={delay('0.12s')}>
+          <FlockHero className="pointer-events-none absolute bottom-[-4%] left-1/2 w-[125%] max-w-none -translate-x-1/2 lg:w-[140%]" />
+          <div className="relative z-10">
+            <PhoneFrame label={t('a11y.mockup')}>
+              <FeedScreen />
+            </PhoneFrame>
+          </div>
         </div>
       </div>
     </section>
