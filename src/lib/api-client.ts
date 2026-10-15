@@ -19,11 +19,7 @@ export interface RequestOptions {
   baseUrl?: string;
 }
 
-function newCorrelationId(): string {
-  return globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-}
-
-/** Único chokepoint HTTP: URL base de variables públicas, `Accept-Language`, `X-Correlation-Id` y Problem Details. */
+/** Único chokepoint HTTP: URL base de variables públicas, `Accept-Language` y Problem Details. */
 export async function apiGet<T>(path: string, { locale, signal, timeoutMs = 6000, baseUrl = env.apiUrl }: RequestOptions): Promise<T> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -32,7 +28,8 @@ export async function apiGet<T>(path: string, { locale, signal, timeoutMs = 6000
   try {
     const response = await fetch(`${baseUrl}${path}`, {
       method: 'GET',
-      headers: { Accept: 'application/json', 'Accept-Language': locale, 'X-Correlation-Id': newCorrelationId() },
+      // Sin X-Correlation-Id: así el GET público es una petición CORS "simple" (sin preflight).
+      headers: { Accept: 'application/json', 'Accept-Language': locale },
       signal: controller.signal,
     });
     if (!response.ok) {

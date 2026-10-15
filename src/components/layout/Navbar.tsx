@@ -52,9 +52,9 @@ export function Navbar() {
         <div className="flex items-center gap-1">
           <LanguageSwitcher />
           <ThemeToggle />
-          <ButtonLink href={env.appUrl} className="ml-2 hidden lg:inline-flex">
-            {t('nav.openApp')}
-          </ButtonLink>
+          <div className="ml-2 hidden lg:block">
+            <ButtonLink href={env.appUrl}>{t('nav.openApp')}</ButtonLink>
+          </div>
           <button
             type="button"
             aria-expanded={open}

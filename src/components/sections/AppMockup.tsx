@@ -92,7 +92,7 @@ export function AppMockup() {
           </div>
         </div>
       </div>
-      <div className="anim-float-slow absolute -right-2 top-24 w-40 rounded-xl border border-default bg-surface-raised p-3 shadow-lg sm:block lg:-right-8">
+      <div className="anim-float-slow absolute right-0 top-24 w-40 rounded-xl border border-default bg-surface-raised p-3 shadow-lg lg:-right-8">
         <p className="text-[11px] font-medium text-muted">{t('hero.floatWalletLabel')}</p>
         <p className="mt-0.5 flex items-center gap-1.5 font-display text-base font-bold text-primary">
           <Wallet className="size-4 text-action-primary" />
