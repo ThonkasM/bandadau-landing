@@ -230,27 +230,3 @@
   .modal-in, .modal-pass { animation: none; }
   .ticket-tilt { transition: none; transform: none !important; }
 }
-
-/* Bandada del hero: entrada en vuelo + vaivén. Solo transform/opacity. */
-.bird-in,
-.bird-bob { transform-box: fill-box; transform-origin: center; }
-.bird-in { animation: bird-in 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) var(--bd, 0s) both; }
-.bird-bob { animation: bird-bob var(--bob, 4s) ease-in-out calc(var(--bd, 0s) + 1.2s) infinite; }
-@keyframes bird-in {
-  from { opacity: 0; transform: translate(var(--fx), var(--fy)) rotate(var(--fr)) scale(0.55); }
-  to { opacity: 1; transform: none; }
-}
-@keyframes bird-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-@supports (animation-timeline: scroll()) {
-  .flock-parallax { animation: flock-drift linear both; animation-timeline: scroll(root); animation-range: 0 90vh; transform-box: fill-box; }
-}
-@keyframes flock-drift { to { transform: translateY(-18px) scale(1.06); opacity: 0.55; } }
-
-/* Escenario pegajoso de funciones: el teléfono cambia de pantalla según el paso visible. */
-.stage-item { transition: opacity 0.55s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.stage-item[data-active="false"] { opacity: 0; transform: translateY(1.5rem) scale(0.96); pointer-events: none; }
-@media (prefers-reduced-motion: reduce) {
-  .bird-in, .bird-bob { animation: none; }
-  .flock-parallax { animation: none; }
-  .stage-item { transition: none; }
-}

@@ -38,7 +38,7 @@ export function Section({
       id={id}
       aria-labelledby={labelledBy}
       className={cn(
-        'relative overflow-clip px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32',
+        'relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32',
         TONES[tone],
         inset && 'mx-3 rounded-[2rem] sm:mx-6 lg:mx-8',
         className,
