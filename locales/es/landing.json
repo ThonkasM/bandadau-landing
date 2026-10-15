@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "title": "Bandada U — La red social de tu universidad",
+    "description": "Conecta con estudiantes verificados de tu carrera, arma grupos de estudio, inscríbete a eventos con créditos y entra con tu ticket QR. Todo en un solo lugar.",
+    "siteName": "Bandada U",
+    "privacyTitle": "Política de privacidad — Bandada U",
+    "termsTitle": "Términos de uso — Bandada U",
+    "legalDescription": "Información legal de Bandada U, la red social para estudiantes universitarios.",
+    "notFoundTitle": "Página no encontrada — Bandada U"
+  },
+  "a11y": {
+    "skipToContent": "Saltar al contenido",
+    "logo": "Bandada U, ir al inicio",
+    "mainNav": "Navegación principal",
+    "footerNav": "Enlaces del pie de página",
+    "legalNav": "Documentos legales",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "mockup": "Vista previa de la aplicación Bandada U con el feed, un evento y la billetera de créditos",
+    "loadingEvents": "Cargando eventos"
+  },
+  "nav": {
+    "features": "Funciones",
+    "how": "Cómo funciona",
+    "events": "Eventos",
+    "faq": "Preguntas",
+    "openApp": "Abrir la app"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English",
+    "switchTo": "Cambiar a {language}",
+    "codeEs": "ES",
+    "codeEn": "EN"
+  },
+  "theme": {
+    "system": "Automático",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "switchTo": "Tema: {current}. Cambiar a {next}"
+  },
+  "hero": {
+    "eyebrow": "Para estudiantes universitarios",
+    "titleLead": "La red social de tu universidad,",
+    "titleAccent": "volando en bandada",
+    "subtitle": "Conecta con estudiantes verificados de tu carrera, comparte apuntes, arma grupos de estudio y reserva tu lugar en talleres y eventos pagando con créditos.",
+    "ctaPrimary": "Abrir la app",
+    "ctaSecondary": "Ver eventos",
+    "chipVerified": "Solo correo institucional",
+    "chipTicket": "Tickets con QR",
+    "chipCredits": "Pagos con créditos",
+    "floatTicketTitle": "Entrada confirmada",
+    "floatTicketBody": "Taller de Docker · Auditorio",
+    "floatWalletLabel": "Tu billetera",
+    "floatWalletValue": "{credits, plural, one {# crédito} other {# créditos}}"
+  },
+  "mock": {
+    "appName": "Bandada U",
+    "stories": "Tu carrera",
+    "tabHome": "Inicio",
+    "tabGroups": "Grupos",
+    "tabEvents": "Eventos",
+    "tabWallet": "Billetera",
+    "postAuthor": "Lucía M.",
+    "postMeta": "Sistemas · UMSA · hace 5 min",
+    "postBody": "¿Alguien tiene los apuntes de Bases de Datos? Armamos grupo de estudio el jueves a las 18:00.",
+    "postReactions": "{count, plural, one {# reacción} other {# reacciones}}",
+    "postComments": "{count, plural, one {# comentario} other {# comentarios}}",
+    "verified": "Verificada",
+    "eventBadge": "Evento",
+    "eventTitle": "Taller de Docker para principiantes",
+    "eventMeta": "Vie 24 · Auditorio de Ingeniería",
+    "eventPrice": "20 créditos",
+    "eventCta": "Inscribirme",
+    "seatsLeft": "{count, plural, one {Queda # cupo} other {Quedan # cupos}}"
+  },
+  "problem": {
+    "eyebrow": "El problema",
+    "title": "Tu vida universitaria no cabe en cinco apps distintas",
+    "subtitle": "Los avisos viven en un grupo de mensajería, los eventos en la cuenta de cada centro de estudiantes y las inscripciones en formularios que alguien concilia a mano. Bandada U lo junta todo.",
+    "beforeTitle": "Hoy",
+    "beforeA": "Avisos perdidos entre cientos de mensajes de grupos.",
+    "beforeB": "Eventos dispersos en redes de cada centro de estudiantes.",
+    "beforeC": "Pagos por QR y planillas que se concilian a mano.",
+    "beforeD": "Perfiles falsos y cero certeza de quién es estudiante.",
+    "afterTitle": "Con Bandada U",
+    "afterA": "Un feed de tu carrera, tus grupos y tus compañeros.",
+    "afterB": "Un calendario único de eventos con cupos en tiempo real.",
+    "afterC": "Inscripción con créditos y ticket QR automático.",
+    "afterD": "Identidad verificada con correo institucional."
+  },
+  "features": {
+    "eyebrow": "Funciones",
+    "title": "Todo lo que necesitas para vivir la universidad",
+    "subtitle": "Pensada para estudiantes, organizadores y moderadores, con la mala conectividad del campus en mente.",
+    "identityTitle": "Identidad verificada",
+    "identityBody": "Te registras con tu correo institucional y confirmas un código. Dentro solo hay estudiantes reales de tu universidad.",
+    "communityTitle": "Feed y grupos de estudio",
+    "communityBody": "Publica texto e imágenes, sigue a compañeros y únete a grupos por materia, públicos o privados.",
+    "eventsTitle": "Eventos con ticket QR",
+    "eventsBody": "Inscríbete a talleres y charlas pagando con créditos. Recibes tu entrada con QR y, si algo falla, se te reembolsa solo.",
+    "walletTitle": "Billetera de créditos",
+    "walletBody": "Recarga, consulta tu saldo y revisa tus movimientos. Cada operación es segura y no se cobra dos veces.",
+    "organizersTitle": "Panel para organizadores y moderación",
+    "organizersBody": "Publica eventos con cupo y precio, y deja que el equipo de moderación revise el contenido reportado desde un panel propio.",
+    "themeTitle": "Modo claro y oscuro",
+    "themeBody": "Elige el tema que prefieras o deja que siga a tu dispositivo. Disponible en español e inglés."
+  },
+  "how": {
+    "eyebrow": "Cómo funciona",
+    "title": "De cero a tu primera entrada en tres pasos",
+    "step1Title": "Verifica tu cuenta",
+    "step1Body": "Regístrate con tu correo institucional y confirma el código que te llega.",
+    "step2Title": "Únete a tu bandada",
+    "step2Body": "Completa tu perfil, sigue a tus compañeros y entra a los grupos de tus materias.",
+    "step3Title": "Reserva y asiste",
+    "step3Body": "Recarga créditos, inscríbete a un evento y muestra tu QR en la puerta.",
+    "stepLabel": "Paso {number}"
+  },
+  "events": {
+    "eyebrow": "Eventos destacados",
+    "title": "Próximos talleres y charlas",
+    "subtitle": "Una muestra de lo que se viene en las universidades de Bandada U.",
+    "sampleNotice": "Mostrando eventos de ejemplo. Abre la app para ver los eventos reales.",
+    "empty": "Todavía no hay eventos publicados. Vuelve pronto o abre la app para crear el primero.",
+    "free": "Gratis",
+    "seatsLeft": "{count, plural, =0 {Sin cupos} one {Queda # cupo} other {Quedan # cupos}}",
+    "register": "Inscribirme en la app",
+    "seeAll": "Ver todos los eventos",
+    "coverAlt": "Portada del evento {title}",
+    "samples": {
+      "docker": {
+        "title": "Taller de Docker para principiantes",
+        "venue": "Auditorio de la Facultad de Ingeniería"
+      },
+      "career": {
+        "title": "Charla: primeras prácticas en tecnología",
+        "venue": "Sala de conferencias, Edificio Central"
+      },
+      "hack": {
+        "title": "Maratón de programación de la carrera",
+        "venue": "Laboratorio de computación 3"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "Preguntas frecuentes",
+    "title": "Lo que más nos preguntan",
+    "q1": "¿Quién puede usar Bandada U?",
+    "a1": "Estudiantes con correo institucional de una universidad habilitada. Así garantizamos que dentro de la red solo haya personas reales de tu comunidad.",
+    "q2": "¿Cuánto cuesta?",
+    "a2": "Registrarte y usar la red es gratis. Solo pagas, con créditos de tu billetera, los eventos que tienen precio; los gratuitos no cuestan nada.",
+    "q3": "¿Cómo funcionan los créditos?",
+    "a3": "Recargas créditos en tu billetera y los usas para inscribirte a eventos. Si una inscripción falla o cancelas a tiempo, el cobro se reembolsa automáticamente.",
+    "q4": "¿Cómo entro a un evento?",
+    "a4": "Al inscribirte recibes un ticket con código QR en la app. El organizador lo escanea en la puerta y queda registrada tu asistencia.",
+    "q5": "¿Quién modera el contenido?",
+    "a5": "Cualquiera puede denunciar una publicación. El equipo de moderación la revisa desde el panel y puede ocultarla o aprobarla.",
+    "q6": "¿Hay versión en inglés y modo oscuro?",
+    "a6": "Sí. Bandada U está disponible en español e inglés y tiene modo claro y oscuro, automático o a tu elección."
+  },
+  "cta": {
+    "title": "Tu bandada ya está volando",
+    "subtitle": "Súmate con tu correo institucional y empieza a conectar con tu carrera hoy mismo.",
+    "primary": "Abrir la app",
+    "secondary": "Soy organizador: ir al panel"
+  },
+  "footer": {
+    "tagline": "La red social de tu universidad. Comunidad estudiantil al instante.",
+    "productTitle": "Producto",
+    "legalTitle": "Legal",
+    "app": "Abrir la app",
+    "panel": "Panel de administración",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "copyright": "© {year} Bandada U. Proyecto académico de Ingeniería de Software II, Grupo 24."
+  },
+  "notFound": {
+    "title": "Esta bandada se desvió",
+    "body": "No encontramos la página que buscas. Puede que el enlace haya cambiado o que nunca haya existido.",
+    "home": "Volver al inicio",
+    "code": "404"
+  },
+  "redirect": {
+    "message": "Te estamos llevando a la versión en tu idioma…",
+    "link": "Continuar en español"
+  },
+  "legal": {
+    "updated": "Última actualización: {date}",
+    "back": "Volver al inicio",
+    "privacy": {
+      "title": "Política de privacidad",
+      "intro": "Esta política explica qué datos trata Bandada U, para qué los usa y qué derechos tienes sobre ellos. Bandada U es un proyecto académico de la materia Ingeniería de Software II (Grupo 24).",
+      "s1Title": "Datos que recopilamos",
+      "s1Body": "Correo institucional, nombre, universidad, carrera, semestre e intereses que tú indicas; el contenido que publicas; tus inscripciones, tickets y movimientos de créditos; y datos técnicos mínimos para el funcionamiento del servicio, como tu idioma y tema preferidos.",
+      "s2Title": "Para qué usamos tus datos",
+      "s2Body": "Para verificar tu identidad como estudiante, mostrarte tu feed y tus grupos, gestionar tus inscripciones y tu billetera, enviarte notificaciones del servicio y mantener la plataforma segura y moderada.",
+      "s3Title": "Con quién los compartimos",
+      "s3Body": "No vendemos tus datos. Los organizadores de un evento solo ven los datos necesarios para gestionar tu inscripción. El equipo de moderación puede revisar contenido denunciado.",
+      "s4Title": "Esta página web",
+      "s4Body": "Este sitio guarda en tu navegador únicamente tu preferencia de idioma y de tema, para recordarla. No usamos cookies publicitarias ni de seguimiento.",
+      "s5Title": "Tus derechos",
+      "s5Body": "Puedes acceder a tus datos, corregirlos o pedir su eliminación escribiendo al equipo del proyecto. Atenderemos tu solicitud en un plazo razonable.",
+      "s6Title": "Cambios en esta política",
+      "s6Body": "Si actualizamos esta política, publicaremos la nueva versión en esta página con su fecha de actualización."
+    },
+    "terms": {
+      "title": "Términos de uso",
+      "intro": "Al usar Bandada U aceptas estos términos. Bandada U es un proyecto académico de la materia Ingeniería de Software II (Grupo 24), y el servicio se ofrece tal como está.",
+      "s1Title": "Cuenta y elegibilidad",
+      "s1Body": "Necesitas un correo institucional de una universidad habilitada. Eres responsable de la seguridad de tu cuenta y de la veracidad de tus datos.",
+      "s2Title": "Conducta y contenido",
+      "s2Body": "Eres responsable de lo que publicas. No se permite contenido ilegal, violento, sexual explícito, acoso ni suplantación de identidad. Podemos ocultar contenido y suspender cuentas que incumplan estas reglas.",
+      "s3Title": "Eventos, créditos y pagos",
+      "s3Body": "Los créditos sirven para inscribirte a eventos dentro de la plataforma. Si una inscripción no puede completarse o se cancela dentro del plazo del evento, el cobro se reembolsa en créditos. En esta versión la recarga de créditos es simulada.",
+      "s4Title": "Disponibilidad",
+      "s4Body": "Hacemos lo posible por mantener el servicio disponible, pero no garantizamos que funcione sin interrupciones ni errores.",
+      "s5Title": "Propiedad intelectual",
+      "s5Body": "La marca Bandada U y el software pertenecen a sus autores. Tú conservas los derechos sobre el contenido que publicas y nos autorizas a mostrarlo dentro de la plataforma.",
+      "s6Title": "Cambios en los términos",
+      "s6Body": "Podemos actualizar estos términos. Si sigues usando el servicio después de una actualización, la aceptas."
+    }
+  }
+}

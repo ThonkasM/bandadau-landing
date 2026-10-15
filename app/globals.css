@@ -1,0 +1,163 @@
+@import "tailwindcss";
+@import "@bandada/ui-tokens/css/tokens.css";
+@import "@bandada/ui-tokens/css/tailwind-theme.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Tipografías de la landing (next/font): par Rubik (display) + IBM Plex Sans (cuerpo).
+   Sobrescriben solo la familia; el resto de tokens se usa tal cual. */
+:root,
+:root[data-theme] {
+  --bd-font-family-display: var(--font-rubik), "Rubik", ui-sans-serif, system-ui, sans-serif;
+  --bd-font-family-body: var(--font-plex), "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    background-color: var(--bd-color-bg-canvas);
+    color: var(--bd-color-text-primary);
+    font-family: var(--bd-font-family-body);
+    line-height: var(--bd-line-height-normal);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--bd-font-family-display);
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--bd-color-border-focus);
+    outline-offset: 3px;
+    border-radius: var(--bd-radius-sm);
+  }
+  ::selection {
+    background: var(--bd-color-action-primary-bg);
+    color: var(--bd-color-action-primary-fg);
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Contenedor único: header, secciones, bandas y footer comparten los mismos bordes. */
+@utility container-page {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 640px) {
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Fondos decorativos construidos solo con tokens (color-mix sobre variables semánticas). */
+@utility bg-hero {
+  background-image:
+    radial-gradient(60rem 28rem at 85% -10%, color-mix(in oklab, var(--bd-color-brand-accent) 22%, transparent), transparent 70%),
+    radial-gradient(50rem 30rem at 0% 0%, color-mix(in oklab, var(--bd-color-action-primary-bg) 20%, transparent), transparent 70%);
+}
+@utility bg-dots {
+  background-image: radial-gradient(color-mix(in oklab, var(--bd-color-text-muted) 35%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+@utility bg-glow {
+  background-image: radial-gradient(
+    closest-side,
+    color-mix(in oklab, var(--bd-color-action-primary-bg) 35%, transparent),
+    transparent
+  );
+}
+@utility bg-glow-accent {
+  background-image: radial-gradient(
+    closest-side,
+    color-mix(in oklab, var(--bd-color-brand-accent) 45%, transparent),
+    transparent
+  );
+}
+@utility bg-cta {
+  background-image:
+    radial-gradient(40rem 20rem at 100% 0%, color-mix(in oklab, var(--bd-color-brand-accent) 35%, transparent), transparent 70%),
+    radial-gradient(36rem 20rem at 0% 100%, color-mix(in oklab, var(--bd-color-action-primary-fg) 18%, transparent), transparent 70%);
+}
+
+@keyframes bd-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes bd-flap {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-3deg);
+  }
+}
+@keyframes bd-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-float {
+    animation: bd-float 6s var(--bd-motion-easing-standard) infinite;
+  }
+  .anim-float-slow {
+    animation: bd-float 8s var(--bd-motion-easing-standard) infinite;
+    animation-delay: -2s;
+  }
+  .anim-flap {
+    animation: bd-flap 4.5s var(--bd-motion-easing-standard) infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .anim-rise {
+    animation: bd-rise 0.7s var(--bd-motion-easing-emphasized) both;
+  }
+  .reveal {
+    transition:
+      opacity var(--bd-motion-duration-slow) var(--bd-motion-easing-emphasized),
+      transform 0.6s var(--bd-motion-easing-emphasized);
+  }
+  .reveal[data-reveal="hidden"] {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

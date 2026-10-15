@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "title": "Bandada U — Your university's social network",
+    "description": "Connect with verified students from your program, form study groups, register for events with credits and get in with your QR ticket. All in one place.",
+    "siteName": "Bandada U",
+    "privacyTitle": "Privacy policy — Bandada U",
+    "termsTitle": "Terms of use — Bandada U",
+    "legalDescription": "Legal information for Bandada U, the social network for university students.",
+    "notFoundTitle": "Page not found — Bandada U"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "logo": "Bandada U, go to home",
+    "mainNav": "Main navigation",
+    "footerNav": "Footer links",
+    "legalNav": "Legal documents",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mockup": "Preview of the Bandada U app showing the feed, an event and the credits wallet",
+    "loadingEvents": "Loading events"
+  },
+  "nav": {
+    "features": "Features",
+    "how": "How it works",
+    "events": "Events",
+    "faq": "FAQ",
+    "openApp": "Open the app"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English",
+    "switchTo": "Switch to {language}",
+    "codeEs": "ES",
+    "codeEn": "EN"
+  },
+  "theme": {
+    "system": "Automatic",
+    "light": "Light",
+    "dark": "Dark",
+    "switchTo": "Theme: {current}. Switch to {next}"
+  },
+  "hero": {
+    "eyebrow": "For university students",
+    "titleLead": "Your university's social network,",
+    "titleAccent": "flying as a flock",
+    "subtitle": "Connect with verified students from your program, share notes, form study groups and book your spot at workshops and events paying with credits.",
+    "ctaPrimary": "Open the app",
+    "ctaSecondary": "See events",
+    "chipVerified": "Institutional email only",
+    "chipTicket": "QR tickets",
+    "chipCredits": "Pay with credits",
+    "floatTicketTitle": "Registration confirmed",
+    "floatTicketBody": "Docker workshop · Auditorium",
+    "floatWalletLabel": "Your wallet",
+    "floatWalletValue": "{credits, plural, one {# credit} other {# credits}}"
+  },
+  "mock": {
+    "appName": "Bandada U",
+    "stories": "Your program",
+    "tabHome": "Home",
+    "tabGroups": "Groups",
+    "tabEvents": "Events",
+    "tabWallet": "Wallet",
+    "postAuthor": "Lucía M.",
+    "postMeta": "Systems · UMSA · 5 min ago",
+    "postBody": "Does anyone have the Databases notes? We're setting up a study group on Thursday at 6 PM.",
+    "postReactions": "{count, plural, one {# reaction} other {# reactions}}",
+    "postComments": "{count, plural, one {# comment} other {# comments}}",
+    "verified": "Verified",
+    "eventBadge": "Event",
+    "eventTitle": "Docker workshop for beginners",
+    "eventMeta": "Fri 24 · Engineering auditorium",
+    "eventPrice": "20 credits",
+    "eventCta": "Register",
+    "seatsLeft": "{count, plural, one {# seat left} other {# seats left}}"
+  },
+  "problem": {
+    "eyebrow": "The problem",
+    "title": "Your university life doesn't fit in five different apps",
+    "subtitle": "Announcements live in a messaging group, events in each student center's account, and sign-ups in forms someone reconciles by hand. Bandada U brings it all together.",
+    "beforeTitle": "Today",
+    "beforeA": "Announcements lost among hundreds of group messages.",
+    "beforeB": "Events scattered across each student center's networks.",
+    "beforeC": "QR payments and spreadsheets reconciled by hand.",
+    "beforeD": "Fake profiles and no certainty about who is a student.",
+    "afterTitle": "With Bandada U",
+    "afterA": "One feed with your program, your groups and your classmates.",
+    "afterB": "A single events calendar with real-time seats.",
+    "afterC": "Credit-based registration and an automatic QR ticket.",
+    "afterD": "Identity verified with your institutional email."
+  },
+  "features": {
+    "eyebrow": "Features",
+    "title": "Everything you need to live the university",
+    "subtitle": "Built for students, organizers and moderators, with campus-grade connectivity in mind.",
+    "identityTitle": "Verified identity",
+    "identityBody": "You sign up with your institutional email and confirm a code. Inside there are only real students from your university.",
+    "communityTitle": "Feed and study groups",
+    "communityBody": "Post text and images, follow classmates and join subject groups, public or private.",
+    "eventsTitle": "Events with QR tickets",
+    "eventsBody": "Register for workshops and talks paying with credits. You get your QR entry, and if something fails you are refunded automatically.",
+    "walletTitle": "Credits wallet",
+    "walletBody": "Top up, check your balance and review your transactions. Every operation is safe and never charged twice.",
+    "organizersTitle": "Organizer panel and moderation",
+    "organizersBody": "Publish events with capacity and price, and let the moderation team review reported content from a dedicated panel.",
+    "themeTitle": "Light and dark mode",
+    "themeBody": "Pick the theme you prefer or let it follow your device. Available in Spanish and English."
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "From zero to your first ticket in three steps",
+    "step1Title": "Verify your account",
+    "step1Body": "Sign up with your institutional email and confirm the code we send you.",
+    "step2Title": "Join your flock",
+    "step2Body": "Complete your profile, follow your classmates and join the groups for your subjects.",
+    "step3Title": "Book and attend",
+    "step3Body": "Top up credits, register for an event and show your QR at the door.",
+    "stepLabel": "Step {number}"
+  },
+  "events": {
+    "eyebrow": "Featured events",
+    "title": "Upcoming workshops and talks",
+    "subtitle": "A taste of what's coming at Bandada U universities.",
+    "sampleNotice": "Showing sample events. Open the app to see the real ones.",
+    "empty": "There are no published events yet. Check back soon or open the app to create the first one.",
+    "free": "Free",
+    "seatsLeft": "{count, plural, =0 {Sold out} one {# seat left} other {# seats left}}",
+    "register": "Register in the app",
+    "seeAll": "See all events",
+    "coverAlt": "Cover of the event {title}",
+    "samples": {
+      "docker": {
+        "title": "Docker workshop for beginners",
+        "venue": "Engineering Faculty auditorium"
+      },
+      "career": {
+        "title": "Talk: your first tech internships",
+        "venue": "Conference room, Main Building"
+      },
+      "hack": {
+        "title": "Program-wide coding marathon",
+        "venue": "Computer lab 3"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "What people ask us the most",
+    "q1": "Who can use Bandada U?",
+    "a1": "Students with an institutional email from an enabled university. That way only real people from your community are inside the network.",
+    "q2": "How much does it cost?",
+    "a2": "Signing up and using the network is free. You only pay, with credits from your wallet, for events that have a price; free events cost nothing.",
+    "q3": "How do credits work?",
+    "a3": "You top up credits in your wallet and use them to register for events. If a registration fails or you cancel in time, the charge is refunded automatically.",
+    "q4": "How do I get into an event?",
+    "a4": "When you register you get a ticket with a QR code in the app. The organizer scans it at the door and your attendance is recorded.",
+    "q5": "Who moderates content?",
+    "a5": "Anyone can report a post. The moderation team reviews it from the panel and can hide or approve it.",
+    "q6": "Is there an English version and dark mode?",
+    "a6": "Yes. Bandada U is available in Spanish and English and has light and dark mode, automatic or your choice."
+  },
+  "cta": {
+    "title": "Your flock is already flying",
+    "subtitle": "Join with your institutional email and start connecting with your program today.",
+    "primary": "Open the app",
+    "secondary": "I'm an organizer: go to the panel"
+  },
+  "footer": {
+    "tagline": "Your university's social network. Student community, instantly.",
+    "productTitle": "Product",
+    "legalTitle": "Legal",
+    "app": "Open the app",
+    "panel": "Admin panel",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "copyright": "© {year} Bandada U. Academic project for Software Engineering II, Group 24."
+  },
+  "notFound": {
+    "title": "This flock went off course",
+    "body": "We couldn't find the page you're looking for. The link may have changed or may never have existed.",
+    "home": "Back to home",
+    "code": "404"
+  },
+  "redirect": {
+    "message": "Taking you to the version in your language…",
+    "link": "Continue in English"
+  },
+  "legal": {
+    "updated": "Last updated: {date}",
+    "back": "Back to home",
+    "privacy": {
+      "title": "Privacy policy",
+      "intro": "This policy explains what data Bandada U processes, what it uses it for and what rights you have over it. Bandada U is an academic project for the Software Engineering II course (Group 24).",
+      "s1Title": "Data we collect",
+      "s1Body": "Institutional email, name, university, program, semester and interests that you provide; the content you post; your registrations, tickets and credit transactions; and the minimum technical data needed to run the service, such as your preferred language and theme.",
+      "s2Title": "What we use your data for",
+      "s2Body": "To verify your identity as a student, show you your feed and groups, manage your registrations and wallet, send you service notifications and keep the platform safe and moderated.",
+      "s3Title": "Who we share it with",
+      "s3Body": "We do not sell your data. Event organizers only see the data needed to manage your registration. The moderation team may review reported content.",
+      "s4Title": "This website",
+      "s4Body": "This site stores only your language and theme preferences in your browser, to remember them. We do not use advertising or tracking cookies.",
+      "s5Title": "Your rights",
+      "s5Body": "You can access your data, correct it or ask for its deletion by contacting the project team. We will handle your request within a reasonable time.",
+      "s6Title": "Changes to this policy",
+      "s6Body": "If we update this policy, we will publish the new version on this page with its update date."
+    },
+    "terms": {
+      "title": "Terms of use",
+      "intro": "By using Bandada U you accept these terms. Bandada U is an academic project for the Software Engineering II course (Group 24), and the service is provided as is.",
+      "s1Title": "Account and eligibility",
+      "s1Body": "You need an institutional email from an enabled university. You are responsible for the security of your account and the accuracy of your data.",
+      "s2Title": "Conduct and content",
+      "s2Body": "You are responsible for what you post. Illegal, violent or sexually explicit content, harassment and impersonation are not allowed. We may hide content and suspend accounts that break these rules.",
+      "s3Title": "Events, credits and payments",
+      "s3Body": "Credits are used to register for events within the platform. If a registration cannot be completed or is cancelled within the event's deadline, the charge is refunded in credits. In this version, credit top-ups are simulated.",
+      "s4Title": "Availability",
+      "s4Body": "We do our best to keep the service available, but we do not guarantee it will run without interruptions or errors.",
+      "s5Title": "Intellectual property",
+      "s5Body": "The Bandada U brand and software belong to their authors. You keep the rights to the content you post and allow us to display it within the platform.",
+      "s6Title": "Changes to the terms",
+      "s6Body": "We may update these terms. If you keep using the service after an update, you accept it."
+    }
+  }
+}
