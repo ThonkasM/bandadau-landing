@@ -1,7 +1,6 @@
 import { applyTheme, resolveEffectiveTheme, THEME_STORAGE_KEY, type ThemePreference } from '@bandada/ui-tokens';
 
 export type { ThemePreference };
-export const THEME_ORDER: readonly ThemePreference[] = ['SYSTEM', 'LIGHT', 'DARK'];
 
 const listeners = new Set<() => void>();
 
@@ -32,6 +31,7 @@ export function subscribeTheme(listener: () => void): () => void {
   const onSystemChange = () => {
     if (readThemePreference() === 'SYSTEM') {
       applyTheme(resolveEffectiveTheme('SYSTEM', media?.matches ?? false), document);
+      listeners.forEach((notify) => notify());
     }
   };
   media?.addEventListener('change', onSystemChange);
@@ -39,4 +39,35 @@ export function subscribeTheme(listener: () => void): () => void {
     listeners.delete(listener);
     media?.removeEventListener('change', onSystemChange);
   };
+}
+
+export type EffectiveTheme = 'light' | 'dark';
+
+/** Tema que se está mostrando ahora (el atributo lo fija `themeScript` antes de pintar). */
+export function readEffectiveTheme(): EffectiveTheme {
+  const attr = document.documentElement.getAttribute('data-theme');
+  if (attr === 'light' || attr === 'dark') return attr;
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+/**
+ * Cambia entre claro y oscuro con un círculo que crece desde `origin` (View Transitions API).
+ * Sin soporte o con movimiento reducido el cambio es inmediato.
+ */
+export function toggleTheme(origin?: { x: number; y: number }): void {
+  const next: ThemePreference = readEffectiveTheme() === 'dark' ? 'LIGHT' : 'DARK';
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  if (typeof document.startViewTransition !== 'function' || reduced || !origin) {
+    setThemePreference(next);
+    return;
+  }
+  const { x, y } = origin;
+  const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+  const transition = document.startViewTransition(() => setThemePreference(next));
+  void transition.ready.then(() => {
+    document.documentElement.animate(
+      { clipPath: [`circle(0 at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+      { duration: 480, easing: 'ease-in-out', pseudoElement: '::view-transition-new(root)' },
+    );
+  });
 }

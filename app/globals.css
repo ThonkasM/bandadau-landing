@@ -16,6 +16,7 @@
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
   }
   @media (prefers-reduced-motion: no-preference) {
     html {
@@ -35,11 +36,18 @@
   h3,
   h4 {
     font-family: var(--bd-font-family-display);
+    letter-spacing: -0.02em;
     text-wrap: balance;
+  }
+  /* Acento de color en titulares: `<em>` dentro de un título. */
+  h1 em,
+  h2 em {
+    font-style: normal;
+    color: var(--bd-color-text-link);
   }
   :focus-visible {
     outline: 2px solid var(--bd-color-border-focus);
-    outline-offset: 3px;
+    outline-offset: 2px;
     border-radius: var(--bd-radius-sm);
   }
   ::selection {
@@ -49,12 +57,17 @@
   summary::-webkit-details-marker {
     display: none;
   }
+  /* La navbar fija mide 4rem: los anclajes no quedan tapados. */
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
 }
 
-/* Contenedor único: header, secciones, bandas y footer comparten los mismos bordes. */
+/* Contenedor único: navbar, hero, secciones, bandas y footer comparten los mismos bordes
+   laterales. Crece en monitores grandes y se detiene a 104rem. */
 @utility container-page {
   width: 100%;
-  max-width: 80rem;
+  max-width: clamp(80rem, 85vw, 104rem);
   margin-inline: auto;
   padding-inline: 1rem;
   @media (min-width: 640px) {
@@ -65,90 +78,122 @@
   }
 }
 
-/* Fondos decorativos construidos solo con tokens (color-mix sobre variables semánticas). */
-@utility bg-hero {
-  background-image:
-    radial-gradient(60rem 28rem at 85% -10%, color-mix(in oklab, var(--bd-color-brand-accent) 22%, transparent), transparent 70%),
-    radial-gradient(50rem 30rem at 0% 0%, color-mix(in oklab, var(--bd-color-action-primary-bg) 20%, transparent), transparent 70%);
+/* Tipografía fluida: crece con el viewport sin saltos. */
+@utility text-fluid-hero {
+  font-size: clamp(2.5rem, 4.6vw + 1rem, max(4.5rem, min(4.6vw, 5.75rem)));
+  line-height: 1.04;
+  letter-spacing: -0.03em;
 }
-@utility bg-dots {
-  background-image: radial-gradient(color-mix(in oklab, var(--bd-color-text-muted) 35%, transparent) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-@utility bg-glow {
-  background-image: radial-gradient(
-    closest-side,
-    color-mix(in oklab, var(--bd-color-action-primary-bg) 35%, transparent),
-    transparent
-  );
-}
-@utility bg-glow-accent {
-  background-image: radial-gradient(
-    closest-side,
-    color-mix(in oklab, var(--bd-color-brand-accent) 45%, transparent),
-    transparent
-  );
-}
-@utility bg-cta {
-  background-image:
-    radial-gradient(40rem 20rem at 100% 0%, color-mix(in oklab, var(--bd-color-brand-accent) 35%, transparent), transparent 70%),
-    radial-gradient(36rem 20rem at 0% 100%, color-mix(in oklab, var(--bd-color-action-primary-fg) 18%, transparent), transparent 70%);
+@utility text-fluid-section {
+  font-size: clamp(1.875rem, 1.6vw + 1.35rem, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-@keyframes bd-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+/* Chasis de dispositivo: tonos oscuros derivados del fondo (siguen al tema, sin hex). */
+@utility bg-device {
+  background-color: color-mix(in oklab, var(--bd-color-bg-canvas) 10%, black);
 }
-@keyframes bd-flap {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-5px) rotate(-3deg);
-  }
+@utility bg-device-edge {
+  background-color: color-mix(in oklab, var(--bd-color-bg-canvas) 38%, black);
 }
-@keyframes bd-rise {
+@utility text-device {
+  color: color-mix(in oklab, var(--bd-color-bg-canvas) 10%, black);
+}
+
+@keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes progress-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .anim-float {
-    animation: bd-float 6s var(--bd-motion-easing-standard) infinite;
+  /* Entrada escalonada del hero: el retraso se pasa con style={{ '--d': '0.1s' }}. */
+  .hero-rise {
+    animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s) both;
   }
-  .anim-float-slow {
-    animation: bd-float 8s var(--bd-motion-easing-standard) infinite;
-    animation-delay: -2s;
-  }
-  .anim-flap {
-    animation: bd-flap 4.5s var(--bd-motion-easing-standard) infinite;
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-  .anim-rise {
-    animation: bd-rise 0.7s var(--bd-motion-easing-emphasized) both;
-  }
+
+  /* Entrada al hacer scroll (la dispara <Reveal>). Solo opacidad y desplazamiento, sin desenfoque. */
   .reveal {
     transition:
-      opacity var(--bd-motion-duration-slow) var(--bd-motion-easing-emphasized),
-      transform 0.6s var(--bd-motion-easing-emphasized);
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .reveal[data-reveal="hidden"] {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
+
+  /* Panel de pestañas: entra suave al cambiar. */
+  .tab-enter:not([hidden]) {
+    animation: fade-in-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-marquee {
+    animation: marquee-x var(--marquee-duration, 48s) linear infinite;
+  }
+  .marquee-track:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+}
+
+/* Barra de progreso de lectura: avanza con el scroll sin JS (si el navegador lo soporta). */
+.scroll-progress {
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress {
+      animation: progress-grow linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+/* Acordeón con altura animada (grid 0fr → 1fr). */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.accordion-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+.accordion-panel > div {
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -160,4 +205,28 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Cambio de tema con círculo (ver ThemeToggle/toggleTheme): el recorte lo anima JS sobre la capa nueva. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+
+/* Ticket 3D: la inclinación llega por variables CSS (rAF) y se suaviza aquí. */
+.ticket-tilt {
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+@keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pass-pop { from { opacity: 0; transform: translateY(2.5rem) scale(0.94); } to { opacity: 1; transform: none; } }
+.modal-in { animation: modal-fade 0.2s ease-out both; }
+.modal-pass { animation: pass-pop 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .modal-in, .modal-pass { animation: none; }
+  .ticket-tilt { transition: none; transform: none !important; }
 }

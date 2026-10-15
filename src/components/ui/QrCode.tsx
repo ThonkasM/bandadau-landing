@@ -24,13 +24,13 @@ export function QrCode({ className }: { className?: string }) {
   return (
     <svg viewBox={`0 0 ${GRID} ${GRID}`} className={className} aria-hidden="true" shapeRendering="crispEdges">
       {cells.map(({ x, y }) => (
-        <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" className="fill-primary" />
+        <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" className="fill-current" />
       ))}
       {finders.map(([x, y]) => (
         <g key={`${x}-${y}`}>
-          <rect x={x} y={y} width="3" height="3" className="fill-primary" />
-          <rect x={x + 0.5} y={y + 0.5} width="2" height="2" className="fill-surface" />
-          <rect x={x + 1} y={y + 1} width="1" height="1" className="fill-primary" />
+          <rect x={x} y={y} width="3" height="3" className="fill-current" />
+          <rect x={x + 0.5} y={y + 0.5} width="2" height="2" className="fill-qr-bg" />
+          <rect x={x + 1} y={y + 1} width="1" height="1" className="fill-current" />
         </g>
       ))}
     </svg>

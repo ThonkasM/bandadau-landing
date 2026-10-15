@@ -1,11 +1,12 @@
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
+import { Facts } from '@/components/sections/Facts';
 import { Faq } from '@/components/sections/Faq';
 import { Features } from '@/components/sections/Features';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { Hero } from '@/components/sections/Hero';
 import { HowItWorks } from '@/components/sections/HowItWorks';
-import { Problem } from '@/components/sections/Problem';
+import { Marquee } from '@/components/sections/Marquee';
 import { PublicEvents } from '@/components/sections/PublicEvents';
 
 export default function HomePage() {
@@ -14,9 +15,10 @@ export default function HomePage() {
       <Navbar />
       <main id="main">
         <Hero />
-        <Problem />
+        <Marquee />
         <Features />
         <HowItWorks />
+        <Facts />
         <PublicEvents />
         <Faq />
         <FinalCta />

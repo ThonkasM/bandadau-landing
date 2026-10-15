@@ -3,7 +3,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useLocale } from '@/components/common/use-locale';
-import { LogoMark } from '@/components/ui/Logo';
+import { Logo } from '@/components/ui/Logo';
 import { env } from '@/lib/env';
 import { legalPath } from '@/lib/locale';
 
@@ -12,13 +12,10 @@ export function Footer() {
   const locale = useLocale();
   const link = 'inline-flex min-h-11 items-center text-secondary transition-colors hover:text-primary hover:underline';
   return (
-    <footer className="border-t border-default bg-surface-muted py-12">
+    <footer className="border-t border-default bg-surface-muted py-12 lg:py-16">
       <div className="container-page grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-2">
-            <LogoMark className="size-10" />
-            <span className="font-display text-xl font-bold text-primary">{t('meta.siteName')}</span>
-          </div>
+          <Logo title={t('meta.siteName')} className="gap-3 [&>svg:first-child]:h-11 [&>svg:last-child]:h-6" />
           <p className="mt-4 max-w-sm text-secondary">{t('footer.tagline')}</p>
         </div>
         <nav aria-label={t('a11y.footerNav')}>

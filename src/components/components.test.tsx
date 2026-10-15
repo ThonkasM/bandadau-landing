@@ -49,17 +49,16 @@ describe('LanguageSwitcher', () => {
 });
 
 describe('ThemeToggle', () => {
-  it('recorre automático → claro → oscuro y persiste en bandada.theme', async () => {
+  it('alterna solo claro ↔ oscuro y persiste en bandada.theme', async () => {
     const user = userEvent.setup();
     renderWithProviders(<ThemeToggle />);
     await user.click(screen.getByRole('button'));
-    expect(window.localStorage.getItem(THEME_STORAGE_KEY)).toBe('LIGHT');
-    expect(document.documentElement).toHaveAttribute('data-theme', 'light');
-    await user.click(screen.getByRole('button'));
     expect(window.localStorage.getItem(THEME_STORAGE_KEY)).toBe('DARK');
     expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
+    expect(screen.getByRole('button')).toHaveAttribute('aria-pressed', 'true');
     await user.click(screen.getByRole('button'));
-    expect(window.localStorage.getItem(THEME_STORAGE_KEY)).toBeNull();
+    expect(window.localStorage.getItem(THEME_STORAGE_KEY)).toBe('LIGHT');
+    expect(document.documentElement).toHaveAttribute('data-theme', 'light');
   });
 });
 

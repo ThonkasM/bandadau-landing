@@ -29,7 +29,7 @@ bandadau-landing/
 │       ├── page.tsx               compone las secciones
 │       └── [legal]/page.tsx       /es/privacidad, /es/terminos, /en/privacy, /en/terms
 ├── src/
-│   ├── components/{layout,sections,ui,common}   Navbar, Footer, LegalPage · Hero, AppMockup, Problem, Features, HowItWorks, PublicEvents, Faq, FinalCta · Section, ButtonLink, Logo (LogoMark/FlockArt), PhoneFrame, QrCode · Providers, Reveal, ThemeToggle, LanguageSwitcher
+│   ├── components/{layout,sections,ui,common}   Navbar, Footer, LegalPage · Hero, Marquee, Features, HowItWorks, Facts, PublicEvents, Faq, FinalCta · Section, ButtonLink, Logo (marca oficial de `bandadau-brand`: LogoMark/LogoWordmark/Logo/FlockArt), PhoneFrame, AppTabBar, QrCode · mockups/ (screens = pantallas de la app Expo, TicketPass + TicketModal = ticket 3D) · Providers, Reveal, ThemeToggle, LanguageSwitcher
 │   ├── features/public-events/    api.ts (cliente + fallback), use-public-events.ts (TanStack Query), types
 │   └── lib/                       api-client, env, i18n (createI18n/getT), locale (detección, slugs legales), theme, metadata, fonts
 ├── locales/{es,en}/landing.json   namespace propio `landing` (los de common/errors/enums vienen de @bandada/i18n)
@@ -83,9 +83,9 @@ públicas (si se agregan, **primero al contrato**). Sin JWT.
   `X-Correlation-Id` para evitar el preflight CORS (la API permite `http://localhost:3000`, no otros puertos).
 - i18n: cada página se prerenderiza con una instancia i18next propia (`Providers`), `getT(locale)` para metadata. `/` redirige
   según `bandada.locale` → `navigator.languages` → `es`. Las páginas legales usan slug por idioma (`LEGAL_SLUGS`).
-- Tema: `themeScript` (anti-parpadeo) + `ThemeToggle` (Automático/Claro/Oscuro, clave `bandada.theme`). Las tipografías
+- Tema: `themeScript` (anti-parpadeo) + `ThemeToggle` (solo Claro↔Oscuro, como Homy, con círculo animado por View Transitions; el sistema solo fija el valor inicial; clave `bandada.theme`). Las tipografías
   (Rubik + IBM Plex Sans, `next/font`) sobrescriben solo `--bd-font-family-*` en `globals.css`.
-- Los hex solo existen en `public/favicon.svg` (ilustración propia). Un `<img>` de portada requiere el comentario eslint (export estático).
+- Los logos son los de `../bandadau-brand` (aves en `Logo.tsx` con colores por token; `public/favicon.svg` copiado del kit). Los hex solo existen en `public/favicon.svg`. Un `<img>` de portada requiere el comentario eslint (export estático).
 - Mobile-first, objetivos táctiles ≥ 44 px, `prefers-reduced-motion`.
 - Deploy: `out/` → S3 + CloudFront (HTML `no-cache`, assets con hash 1 año).
 

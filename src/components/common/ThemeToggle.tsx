@@ -1,29 +1,33 @@
 'use client';
 
-import { Monitor, Moon, Sun } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
+import type { MouseEvent } from 'react';
 import { useSyncExternalStore } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { readThemePreference, setThemePreference, subscribeTheme, THEME_ORDER, type ThemePreference } from '@/lib/theme';
+import { type EffectiveTheme, readEffectiveTheme, subscribeTheme, toggleTheme } from '@/lib/theme';
 
-const ICONS = { SYSTEM: Monitor, LIGHT: Sun, DARK: Moon } as const;
-const KEYS = { SYSTEM: 'theme.system', LIGHT: 'theme.light', DARK: 'theme.dark' } as const;
-
-/** Alterna Automático → Claro → Oscuro y persiste la preferencia en `bandada.theme`. */
+/** Alterna claro ↔ oscuro (sin opción "sistema"; el sistema solo fija el valor inicial) con un círculo que se expande. */
 export function ThemeToggle() {
   const { t } = useTranslation();
-  const preference = useSyncExternalStore<ThemePreference>(subscribeTheme, readThemePreference, () => 'SYSTEM');
-  const next = THEME_ORDER[(THEME_ORDER.indexOf(preference) + 1) % THEME_ORDER.length] ?? 'SYSTEM';
-  const Icon = ICONS[preference];
+  const theme = useSyncExternalStore<EffectiveTheme>(subscribeTheme, readEffectiveTheme, () => 'light');
+  const dark = theme === 'dark';
+  const onClick = (event: MouseEvent<HTMLButtonElement>) => {
+    // Los clics por teclado reportan (0,0): se parte del centro del botón.
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX || rect.left + rect.width / 2;
+    const y = event.clientY || rect.top + rect.height / 2;
+    toggleTheme({ x, y });
+  };
   return (
     <button
       type="button"
-      onClick={() => setThemePreference(next)}
-      aria-label={t('theme.switchTo', { current: t(KEYS[preference]), next: t(KEYS[next]) })}
-      title={t(KEYS[preference])}
-      className="inline-flex size-11 items-center justify-center rounded-md text-secondary transition-colors hover:bg-surface-muted hover:text-primary"
+      onClick={onClick}
+      aria-pressed={dark}
+      aria-label={dark ? t('theme.toLight') : t('theme.toDark')}
+      className="inline-flex size-11 items-center justify-center rounded-full text-secondary transition-colors hover:bg-surface-muted hover:text-primary"
     >
-      <Icon className="size-5" />
+      {dark ? <Sun aria-hidden="true" className="size-5" /> : <Moon aria-hidden="true" className="size-5" />}
     </button>
   );
 }

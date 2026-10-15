@@ -4,7 +4,6 @@ import { formatCredits, formatDateTime,INTL_LOCALES, TIME_ZONE } from '@bandada/
 import { CalendarDays, MapPin, Ticket } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-import { Reveal } from '@/components/common/Reveal';
 import { useLocale } from '@/components/common/use-locale';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { LogoMark } from '@/components/ui/Logo';
@@ -20,7 +19,7 @@ function EventCard({ event }: { event: PublicEvent }) {
   const day = new Intl.DateTimeFormat(INTL_LOCALES[locale], { day: 'numeric', timeZone: TIME_ZONE }).format(date);
   const month = new Intl.DateTimeFormat(INTL_LOCALES[locale], { month: 'short', timeZone: TIME_ZONE }).format(date);
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-xl border border-default bg-surface shadow-sm transition-shadow hover:shadow-md">
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-default bg-surface shadow-sm transition-colors hover:border-strong">
       <div className="relative h-36 overflow-hidden bg-feedback-info">
         {event.coverUrl ? (
           // eslint-disable-next-line @next/next/no-img-element -- export estático: sin optimizador de imágenes
@@ -44,7 +43,7 @@ function EventCard({ event }: { event: PublicEvent }) {
           <span className={event.priceCredits === 0 ? 'rounded-full bg-feedback-success px-3 py-1 text-sm font-semibold text-feedback-success-fg' : 'rounded-full bg-feedback-info px-3 py-1 text-sm font-semibold text-feedback-info-fg'}>
             {event.priceCredits === 0 ? t('events.free') : formatCredits(event.priceCredits, locale)}
           </span>
-          <ButtonLink href={env.appUrl} variant="secondary">
+          <ButtonLink href={env.appUrl} variant="secondary" className="rounded-full">
             {t('events.register')}
           </ButtonLink>
         </div>
@@ -69,9 +68,7 @@ export function PublicEvents() {
   const { data, isPending } = usePublicEvents();
   return (
     <Section id="events" labelledBy="events-title">
-      <Reveal>
-        <SectionHeading id="events-title" eyebrow={t('events.eyebrow')} title={t('events.title')} subtitle={t('events.subtitle')} />
-      </Reveal>
+      <SectionHeading id="events-title" index="04" eyebrow={t('events.eyebrow')} title={t('events.title')} subtitle={t('events.subtitle')} />
       <div className="mt-12">
         {isPending ? <EventSkeletons /> : null}
         {data && data.events.length > 0 ? (
@@ -94,7 +91,7 @@ export function PublicEvents() {
           <p className="mx-auto max-w-xl rounded-xl border border-default bg-surface p-8 text-center text-secondary">{t('events.empty')}</p>
         ) : null}
         <div className="mt-10 text-center">
-          <ButtonLink href={env.appUrl} size="lg">
+          <ButtonLink href={env.appUrl} size="lg" className="rounded-full px-7">
             {t('events.seeAll')}
           </ButtonLink>
         </div>
