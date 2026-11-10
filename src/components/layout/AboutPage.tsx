@@ -10,6 +10,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Section, SectionHeading } from '@/components/ui/Section';
+import { cn } from '@/lib/cn';
 import { env } from '@/lib/env';
 import { homePath } from '@/lib/locale';
 
@@ -87,41 +88,54 @@ export function AboutPage() {
         </Section>
 
         <Section tone="muted" labelledBy="about-project-title">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-            <Reveal>
-              <h2 id="about-project-title" className="text-fluid-section font-bold text-primary">
-                {t('about.projectTitle')}
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-secondary">{t('about.projectBody')}</p>
-              <dl className="mt-8 grid gap-4 sm:grid-cols-2">
-                {(['course', 'method'] as const).map((key) => (
-                  <div key={key} className="rounded-2xl border border-default bg-surface p-5">
-                    <dt className="text-xs font-bold uppercase tracking-widest text-muted">{t(`about.${key}Label`)}</dt>
-                    <dd className="mt-2 font-semibold text-primary">{t(`about.${key}Value`)}</dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
-            <Reveal delay={80}>
-              <h3 className="text-2xl font-bold text-primary">{t('about.teamTitle')}</h3>
-              <p className="mt-3 text-secondary">{t('about.teamSubtitle')}</p>
-              <ul className="mt-6 space-y-3">
-                {TEAM.map(({ name, photo }) => (
-                  <li key={name} className="flex items-center gap-4 rounded-2xl border border-default bg-surface p-4">
-                    <Image
-                      src={photo}
-                      alt={name}
-                      width={96}
-                      height={96}
-                      unoptimized
-                      className="size-16 shrink-0 rounded-full border border-default object-cover"
-                    />
-                    <span className="font-semibold text-primary">{name}</span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <h2 id="about-project-title" className="text-fluid-section font-bold text-primary">
+              {t('about.projectTitle')}
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-secondary">{t('about.projectBody')}</p>
+          </Reveal>
+          <dl className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
+            {(['course', 'method'] as const).map((key) => (
+              <Reveal key={key} className="rounded-2xl border border-default bg-surface p-5 text-center">
+                <dt className="text-xs font-bold uppercase tracking-widest text-muted">{t(`about.${key}Label`)}</dt>
+                <dd className="mt-2 font-semibold text-primary">{t(`about.${key}Value`)}</dd>
+              </Reveal>
+            ))}
+          </dl>
+        </Section>
+
+        <Section labelledBy="about-team-title">
+          <SectionHeading
+            id="about-team-title"
+            eyebrow={t('about.teamEyebrow')}
+            title={t('about.teamTitle')}
+            subtitle={t('about.teamSubtitle')}
+          />
+          <ul className="mx-auto mt-14 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+            {TEAM.map(({ name, photo }, index) => (
+              <Reveal
+                as="li"
+                key={name}
+                delay={index * 100}
+                className={cn('group relative sm:last:col-span-2 sm:last:mx-auto sm:last:w-1/2 lg:last:col-span-1 lg:last:w-auto', index === 1 && 'lg:mt-12')}
+              >
+                <div className="aspect-[4/5] overflow-hidden rounded-[2rem] border border-default bg-surface-muted shadow-lg">
+                  <Image
+                    src={photo}
+                    alt={name}
+                    width={480}
+                    height={480}
+                    unoptimized
+                    className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
+                <div className="mt-5 text-center">
+                  <span aria-hidden="true" className="mx-auto block h-1 w-10 rounded-full bg-action-primary" />
+                  <p className="mt-3 text-xl font-bold text-primary">{name}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
         </Section>
 
         <Section tone="brand" labelledBy="about-cta-title" className="my-6 lg:my-10">
