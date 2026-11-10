@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocale } from '@/components/common/use-locale';
 import { Logo } from '@/components/ui/Logo';
 import { env } from '@/lib/env';
-import { legalPath } from '@/lib/locale';
+import { aboutPath, legalPath } from '@/lib/locale';
 
 export function Footer() {
   const { t } = useTranslation();
@@ -23,6 +23,7 @@ export function Footer() {
           <ul className="mt-3">
             <li><a href={env.appUrl} className={link}>{t('footer.app')}</a></li>
             <li><a href={env.adminUrl} className={link}>{t('footer.panel')}</a></li>
+            <li><a href={aboutPath(locale)} className={link}>{t('footer.about')}</a></li>
           </ul>
         </nav>
         <nav aria-label={t('a11y.legalNav')}>

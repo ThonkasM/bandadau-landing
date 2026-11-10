@@ -6,7 +6,9 @@
     "privacyTitle": "Política de privacidad — Bandada U",
     "termsTitle": "Términos de uso — Bandada U",
     "legalDescription": "Información legal de Bandada U, la red social para estudiantes universitarios.",
-    "notFoundTitle": "Página no encontrada — Bandada U"
+    "notFoundTitle": "Página no encontrada — Bandada U",
+    "aboutTitle": "Sobre nosotros — Bandada U",
+    "aboutDescription": "Conoce la misión, la visión y los valores de Bandada U, la red social para estudiantes universitarios, y al equipo que la construye."
   },
   "a11y": {
     "skipToContent": "Saltar al contenido",
@@ -26,7 +28,8 @@
     "events": "Eventos",
     "faq": "Preguntas",
     "openApp": "Abrir la app",
-    "home": "Inicio"
+    "home": "Inicio",
+    "about": "Nosotros"
   },
   "language": {
     "es": "Español",
@@ -295,7 +298,8 @@
     "panel": "Panel de administración",
     "privacy": "Privacidad",
     "terms": "Términos",
-    "copyright": "© {year} Bandada U. Proyecto académico de Ingeniería de Software II, Grupo 24."
+    "copyright": "© {year} Bandada U. Proyecto académico de Ingeniería de Software II, Grupo 24.",
+    "about": "Sobre nosotros"
   },
   "notFound": {
     "title": "Esta bandada se desvió",
@@ -342,5 +346,46 @@
       "s6Title": "Cambios en los términos",
       "s6Body": "Podemos actualizar estos términos. Si sigues usando el servicio después de una actualización, la aceptas."
     }
+  },
+  "about": {
+    "eyebrow": "Sobre nosotros",
+    "title": "Hacemos que la vida universitaria esté en un solo lugar",
+    "subtitle": "Bandada U nace de un problema cotidiano: los avisos, los eventos y los pagos de la universidad están repartidos en muchos canales. Queremos reunirlos en una comunidad verificada.",
+    "teaserTitle": "Una comunidad pensada por y para estudiantes",
+    "teaserSubtitle": "Conoce qué nos mueve, cómo trabajamos y quiénes estamos detrás de Bandada U.",
+    "cta": "Conocer más sobre nosotros",
+    "missionTitle": "Misión",
+    "missionShort": "Conectar a los estudiantes en un espacio verificado, académico y que funcione incluso con mala conexión.",
+    "missionBody": "Conectar a los estudiantes de una universidad en un único espacio verificado y académico, donde puedan comunicarse, organizarse, inscribirse a eventos y pagar con confianza, incluso con una conexión inestable.",
+    "visionTitle": "Visión",
+    "visionShort": "Ser la red social de referencia de la vida universitaria, sin grupos dispersos ni pagos conciliados a mano.",
+    "visionBody": "Ser la red social de referencia de la vida universitaria: que cada estudiante se entere, participe y se inscriba a lo que pasa en su campus sin depender de grupos dispersos ni de pagos conciliados a mano.",
+    "valuesEyebrow": "Valores",
+    "valuesTitle": "Lo que guía cada decisión",
+    "valuesSubtitle": "Principios que se reflejan en el producto y en la forma en que lo construimos.",
+    "values": {
+      "communityTitle": "Comunidad verificada",
+      "communityBody": "Solo estudiantes reales: se entra con correo institucional y un código de verificación.",
+      "trustTitle": "Confianza en cada pago",
+      "trustBody": "Un cobro se aplica una sola vez y, si una inscripción falla a mitad de camino, el crédito vuelve a tu billetera.",
+      "offlineTitle": "Funciona sin conexión",
+      "offlineBody": "Lee el feed y prepara tus publicaciones aunque la red falle; todo se sincroniza sin duplicados al volver.",
+      "careTitle": "Cuidado de la comunidad",
+      "careBody": "El contenido se revisa con apoyo de inteligencia artificial y personas moderadoras.",
+      "inclusiveTitle": "Para todos",
+      "inclusiveBody": "Disponible en español e inglés, con modo claro y oscuro y pensada para ser accesible.",
+      "rigorTitle": "Construido con rigor",
+      "rigorBody": "Requisitos y contratos documentados, pruebas automatizadas y decisiones de diseño registradas."
+    },
+    "projectTitle": "Un proyecto académico con alma de producto",
+    "projectBody": "Bandada U es el proyecto de Ingeniería de Software II. Lo diseñamos y construimos de punta a punta: aplicación móvil y web, panel de administración y servicios en la nube.",
+    "courseLabel": "Materia",
+    "courseValue": "Ingeniería de Software II · Grupo 24",
+    "methodLabel": "Metodología",
+    "methodValue": "ICONIX, guiada por casos de uso",
+    "teamTitle": "El equipo",
+    "teamSubtitle": "Las personas que diseñan, construyen y mantienen Bandada U.",
+    "ctaTitle": "Súmate a la bandada",
+    "mvTitle": "Misión y visión"
   }
 }

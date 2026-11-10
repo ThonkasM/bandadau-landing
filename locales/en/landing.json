@@ -6,7 +6,9 @@
     "privacyTitle": "Privacy policy — Bandada U",
     "termsTitle": "Terms of use — Bandada U",
     "legalDescription": "Legal information for Bandada U, the social network for university students.",
-    "notFoundTitle": "Page not found — Bandada U"
+    "notFoundTitle": "Page not found — Bandada U",
+    "aboutTitle": "About us — Bandada U",
+    "aboutDescription": "Learn about the mission, vision and values of Bandada U, the social network for university students, and the team that builds it."
   },
   "a11y": {
     "skipToContent": "Skip to content",
@@ -26,7 +28,8 @@
     "events": "Events",
     "faq": "FAQ",
     "openApp": "Open the app",
-    "home": "Home"
+    "home": "Home",
+    "about": "About us"
   },
   "language": {
     "es": "Español",
@@ -295,7 +298,8 @@
     "panel": "Admin panel",
     "privacy": "Privacy",
     "terms": "Terms",
-    "copyright": "© {year} Bandada U. Academic project for Software Engineering II, Group 24."
+    "copyright": "© {year} Bandada U. Academic project for Software Engineering II, Group 24.",
+    "about": "About us"
   },
   "notFound": {
     "title": "This flock went off course",
@@ -342,5 +346,46 @@
       "s6Title": "Changes to the terms",
       "s6Body": "We may update these terms. If you keep using the service after an update, you accept it."
     }
+  },
+  "about": {
+    "eyebrow": "About us",
+    "title": "We bring university life together in one place",
+    "subtitle": "Bandada U comes from an everyday problem: announcements, events and payments at university are scattered across many channels. We want to bring them into one verified community.",
+    "teaserTitle": "A community made by and for students",
+    "teaserSubtitle": "Find out what drives us, how we work and who is behind Bandada U.",
+    "cta": "Learn more about us",
+    "missionTitle": "Mission",
+    "missionShort": "Connect students in a verified, academic space that works even with a poor connection.",
+    "missionBody": "Connect the students of a university in a single verified, academic space where they can communicate, organize, sign up for events and pay with confidence, even on an unstable connection.",
+    "visionTitle": "Vision",
+    "visionShort": "Be the go-to social network for university life, with no scattered groups or hand-reconciled payments.",
+    "visionBody": "Be the go-to social network for university life: every student can find out, take part and sign up for what happens on campus without relying on scattered groups or hand-reconciled payments.",
+    "valuesEyebrow": "Values",
+    "valuesTitle": "What guides every decision",
+    "valuesSubtitle": "Principles that show in the product and in the way we build it.",
+    "values": {
+      "communityTitle": "Verified community",
+      "communityBody": "Real students only: you sign in with your institutional email and a verification code.",
+      "trustTitle": "Trust in every payment",
+      "trustBody": "A charge is applied only once and, if a registration fails midway, the credit returns to your wallet.",
+      "offlineTitle": "Works offline",
+      "offlineBody": "Read the feed and prepare your posts even when the network fails; everything syncs without duplicates when you are back online.",
+      "careTitle": "Care for the community",
+      "careBody": "Content is reviewed with the help of artificial intelligence and human moderators.",
+      "inclusiveTitle": "For everyone",
+      "inclusiveBody": "Available in Spanish and English, with light and dark modes and designed to be accessible.",
+      "rigorTitle": "Built with rigor",
+      "rigorBody": "Documented requirements and contracts, automated tests and recorded design decisions."
+    },
+    "projectTitle": "An academic project with a product mindset",
+    "projectBody": "Bandada U is the Software Engineering II project. We design and build it end to end: mobile and web app, admin panel and cloud services.",
+    "courseLabel": "Course",
+    "courseValue": "Software Engineering II · Group 24",
+    "methodLabel": "Methodology",
+    "methodValue": "ICONIX, driven by use cases",
+    "teamTitle": "The team",
+    "teamSubtitle": "The people who design, build and maintain Bandada U.",
+    "ctaTitle": "Join the flock",
+    "mvTitle": "Mission and vision"
   }
 }

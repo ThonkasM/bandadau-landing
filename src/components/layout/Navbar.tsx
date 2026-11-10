@@ -1,6 +1,6 @@
 'use client';
 
-import { CalendarDays, CircleHelp, Home, Menu, Sparkles, Waypoints, X } from 'lucide-react';
+import { CalendarDays, CircleHelp, Home, Menu, Sparkles, Users, Waypoints, X } from 'lucide-react';
 import { useEffect, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -13,7 +13,7 @@ import { Logo } from '@/components/ui/Logo';
 import { useActiveSection } from '@/hooks/use-active-section';
 import { cn } from '@/lib/cn';
 import { env } from '@/lib/env';
-import { homePath } from '@/lib/locale';
+import { aboutPath, homePath } from '@/lib/locale';
 
 const LINKS = [
   { id: 'home', key: 'nav.home', icon: Home },
@@ -24,6 +24,9 @@ const LINKS = [
 ] as const;
 
 const SECTION_IDS = LINKS.map((link) => link.id);
+
+/** «Sobre nosotros» abre su propia página, no una ancla de la home. */
+const ABOUT_LINK = { key: 'nav.about', icon: Users } as const;
 
 /**
  * Navbar sólida: fondo opaco, borde fino y altura fija de 4 rem. Resalta la sección visible
@@ -36,6 +39,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const menuId = useId();
   const home = homePath(locale);
+  const aboutHref = aboutPath(locale);
   const active = useActiveSection(SECTION_IDS);
 
   useEffect(() => {
@@ -67,7 +71,7 @@ export function Navbar() {
             <Logo />
           </a>
 
-          <nav aria-label={t('a11y.mainNav')} className="hidden min-w-0 items-center gap-0.5 lg:flex xl:gap-1">
+          <nav aria-label={t('a11y.mainNav')} className="hidden min-w-0 items-center gap-0.5 xl:flex xl:gap-1">
             {LINKS.map(({ id, key }) => {
               const isActive = active === id;
               return (
@@ -84,12 +88,18 @@ export function Navbar() {
                 </a>
               );
             })}
+            <a
+              href={aboutHref}
+              className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-secondary transition-colors hover:bg-surface-muted hover:text-primary xl:px-4"
+            >
+              {t(ABOUT_LINK.key)}
+            </a>
           </nav>
 
           <div className="flex shrink-0 items-center gap-1">
             <LanguageSwitcher />
             <ThemeToggle />
-            <div className="ml-2 hidden lg:block">
+            <div className="ml-2 hidden xl:block">
               <ButtonLink href={env.appUrl} className="rounded-full px-5">
                 {t('nav.openApp')}
               </ButtonLink>
@@ -100,7 +110,7 @@ export function Navbar() {
               aria-controls={menuId}
               aria-label={open ? t('a11y.closeMenu') : t('a11y.openMenu')}
               onClick={() => setOpen((value) => !value)}
-              className="inline-flex size-11 items-center justify-center rounded-full text-primary transition-colors hover:bg-surface-muted lg:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-full text-primary transition-colors hover:bg-surface-muted xl:hidden"
             >
               {open ? <X className="size-6" /> : <Menu className="size-6" />}
             </button>
@@ -112,13 +122,13 @@ export function Navbar() {
       <div
         aria-hidden="true"
         onClick={() => setOpen(false)}
-        className={cn('fixed inset-0 top-16 z-40 bg-surface-inverse/40 transition-opacity duration-300 lg:hidden', open ? 'opacity-100' : 'pointer-events-none opacity-0')}
+        className={cn('fixed inset-0 top-16 z-40 bg-surface-inverse/40 transition-opacity duration-300 xl:hidden', open ? 'opacity-100' : 'pointer-events-none opacity-0')}
       />
       <div
         id={menuId}
         inert={!open}
         className={cn(
-          'fixed bottom-0 right-0 top-16 z-40 flex w-[88vw] max-w-sm flex-col border-l border-default bg-canvas shadow-lg transition-transform duration-300 ease-out lg:hidden',
+          'fixed bottom-0 right-0 top-16 z-40 flex w-[88vw] max-w-sm flex-col border-l border-default bg-canvas shadow-lg transition-transform duration-300 ease-out xl:hidden',
           open ? 'translate-x-0' : 'translate-x-full',
         )}
       >
@@ -143,6 +153,16 @@ export function Navbar() {
                 </li>
               );
             })}
+            <li>
+              <a
+                href={aboutHref}
+                onClick={() => setOpen(false)}
+                className="flex min-h-12 items-center gap-3 rounded-xl px-3 text-base font-medium text-primary transition-colors hover:bg-surface-muted"
+              >
+                <ABOUT_LINK.icon aria-hidden="true" className="size-5" />
+                {t(ABOUT_LINK.key)}
+              </a>
+            </li>
           </ul>
         </nav>
         <div className="border-t border-default p-4">

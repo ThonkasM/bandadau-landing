@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next';
 
 import { env } from './env';
 import { getT } from './i18n';
-import { homePath, type LegalKind,legalPath } from './locale';
+import { aboutPath, homePath, type LegalKind,legalPath } from './locale';
 
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, colorScheme: 'light dark' };
 
@@ -44,5 +44,18 @@ export function legalMetadata(locale: Locale, kind: LegalKind): Metadata {
     description: t('meta.legalDescription'),
     alternates: { canonical: legalPath(locale, kind), languages: languages((l) => legalPath(l, kind)) },
     openGraph: { type: 'website', siteName: t('meta.siteName'), title, url: legalPath(locale, kind), locale: OG_LOCALE[locale] },
+  };
+}
+
+export function aboutMetadata(locale: Locale): Metadata {
+  const t = getT(locale);
+  const title = t('meta.aboutTitle');
+  const description = t('meta.aboutDescription');
+  return {
+    ...homeMetadata(locale),
+    title,
+    description,
+    alternates: { canonical: aboutPath(locale), languages: languages(aboutPath) },
+    openGraph: { type: 'website', siteName: t('meta.siteName'), title, description, url: aboutPath(locale), locale: OG_LOCALE[locale] },
   };
 }

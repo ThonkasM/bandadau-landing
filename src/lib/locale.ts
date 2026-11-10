@@ -33,6 +33,17 @@ export function legalKindFromSlug(locale: Locale, slug: string): LegalKind | und
   return entry?.[0];
 }
 
+/** Slug de la página «Sobre nosotros» por idioma (`/es/nosotros/`, `/en/about/`). */
+export const ABOUT_SLUGS = { es: 'nosotros', en: 'about' } as const satisfies Record<Locale, string>;
+
+export function isAboutSlug(locale: Locale, slug: string): boolean {
+  return ABOUT_SLUGS[locale] === slug;
+}
+
+export function aboutPath(locale: Locale): string {
+  return `/${locale}/${ABOUT_SLUGS[locale]}/`;
+}
+
 export function homePath(locale: Locale): string {
   return `/${locale}/`;
 }
@@ -49,6 +60,7 @@ export function switchLocalePath(pathname: string, from: Locale, to: Locale): st
   if (first) {
     const kind = legalKindFromSlug(from, first);
     if (kind) return legalPath(to, kind);
+    if (isAboutSlug(from, first)) return aboutPath(to);
   }
   const rest = segments.length ? `${segments.join('/')}/` : '';
   return `/${to}/${rest}`;

@@ -1,5 +1,6 @@
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
+import { AboutTeaser } from '@/components/sections/AboutTeaser';
 import { Facts } from '@/components/sections/Facts';
 import { Faq } from '@/components/sections/Faq';
 import { Features } from '@/components/sections/Features';
@@ -19,6 +20,7 @@ export default function HomePage() {
         <Features />
         <HowItWorks />
         <Facts />
+        <AboutTeaser />
         <PublicEvents />
         <Faq />
         <FinalCta />

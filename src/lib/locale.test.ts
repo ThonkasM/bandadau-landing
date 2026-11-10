@@ -1,7 +1,7 @@
 import { LOCALE_STORAGE_KEY } from '@bandada/i18n';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { detectBrowserLocale, legalKindFromSlug, legalPath, switchLocalePath } from './locale';
+import { aboutPath, detectBrowserLocale, isAboutSlug, legalKindFromSlug, legalPath, switchLocalePath } from './locale';
 
 function setBrowserLanguages(languages: string[]) {
   vi.spyOn(window.navigator, 'languages', 'get').mockReturnValue(languages);
@@ -51,5 +51,13 @@ describe('rutas por idioma', () => {
     expect(legalKindFromSlug('es', 'terminos')).toBe('terms');
     expect(legalKindFromSlug('en', 'terminos')).toBeUndefined();
     expect(legalPath('en', 'privacy')).toBe('/en/privacy/');
+  });
+
+  it('resuelve la ruta de «Sobre nosotros» y la traduce al cambiar de idioma', () => {
+    expect(aboutPath('es')).toBe('/es/nosotros/');
+    expect(aboutPath('en')).toBe('/en/about/');
+    expect(isAboutSlug('es', 'nosotros')).toBe(true);
+    expect(isAboutSlug('en', 'nosotros')).toBe(false);
+    expect(switchLocalePath('/es/nosotros/', 'es', 'en')).toBe('/en/about/');
   });
 });

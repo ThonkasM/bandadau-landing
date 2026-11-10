@@ -7,6 +7,8 @@ import { useTranslation } from 'react-i18next';
 import { useLocale } from '@/components/common/use-locale';
 import { rememberLocale, switchLocalePath } from '@/lib/locale';
 
+const SEPARATOR = '/';
+
 /** Enlace real al mismo contenido en el otro idioma (rastreable) que además recuerda la elección. */
 export function LanguageSwitcher() {
   const { t } = useTranslation();
@@ -29,7 +31,7 @@ export function LanguageSwitcher() {
       {/* Muestra ambos códigos y resalta el idioma actual; el enlace lleva al otro. */}
       <span aria-hidden="true" className="inline-flex items-center gap-1">
         <span className={locale === 'es' ? 'text-primary' : 'text-muted'}>{t('language.codeEs')}</span>
-        <span className="text-muted">/</span>
+        <span className="text-muted">{SEPARATOR}</span>
         <span className={locale === 'en' ? 'text-primary' : 'text-muted'}>{t('language.codeEn')}</span>
       </span>
     </a>
