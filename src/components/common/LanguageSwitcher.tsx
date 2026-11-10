@@ -26,7 +26,12 @@ export function LanguageSwitcher() {
       className="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-md px-2.5 text-sm font-semibold text-secondary transition-colors hover:bg-surface-muted hover:text-primary"
     >
       <Globe className="size-4" />
-      <span>{t(target === 'es' ? 'language.codeEs' : 'language.codeEn')}</span>
+      {/* Muestra ambos códigos y resalta el idioma actual; el enlace lleva al otro. */}
+      <span aria-hidden="true" className="inline-flex items-center gap-1">
+        <span className={locale === 'es' ? 'text-primary' : 'text-muted'}>{t('language.codeEs')}</span>
+        <span className="text-muted">/</span>
+        <span className={locale === 'en' ? 'text-primary' : 'text-muted'}>{t('language.codeEn')}</span>
+      </span>
     </a>
   );
 }
