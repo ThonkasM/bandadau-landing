@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight, BadgeCheck, Code2, Compass, HeartHandshake, Languages, ShieldCheck, Target, WifiOff } from 'lucide-react';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
 import { Reveal } from '@/components/common/Reveal';
@@ -22,15 +23,11 @@ const VALUES = [
 ] as const;
 
 /** Integrantes del equipo (Grupo 24). Los nombres no se traducen. */
-const TEAM = ['Jorge Carvajal', 'Cesar Caballero', 'Diego Yebara'] as const;
-
-function initials(name: string): string {
-  return name
-    .split(' ')
-    .map((part) => part[0])
-    .join('')
-    .slice(0, 2);
-}
+const TEAM = [
+  { name: 'Jorge Carvajal', photo: '/team/jorge-carvajal.jpg' },
+  { name: 'Cesar Caballero', photo: '/team/cesar-caballero.jpg' },
+  { name: 'Diego Yebara', photo: '/team/diego-yebara.jpg' },
+] as const;
 
 /** Página «Sobre nosotros»: misión, visión, valores, el proyecto y el equipo. */
 export function AboutPage() {
@@ -109,14 +106,16 @@ export function AboutPage() {
               <h3 className="text-2xl font-bold text-primary">{t('about.teamTitle')}</h3>
               <p className="mt-3 text-secondary">{t('about.teamSubtitle')}</p>
               <ul className="mt-6 space-y-3">
-                {TEAM.map((name) => (
+                {TEAM.map(({ name, photo }) => (
                   <li key={name} className="flex items-center gap-4 rounded-2xl border border-default bg-surface p-4">
-                    <span
-                      aria-hidden="true"
-                      className="flex size-12 shrink-0 items-center justify-center rounded-full bg-action-primary font-bold text-action-primary-fg"
-                    >
-                      {initials(name)}
-                    </span>
+                    <Image
+                      src={photo}
+                      alt={name}
+                      width={96}
+                      height={96}
+                      unoptimized
+                      className="size-16 shrink-0 rounded-full border border-default object-cover"
+                    />
                     <span className="font-semibold text-primary">{name}</span>
                   </li>
                 ))}
